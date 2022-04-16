@@ -1,0 +1,12 @@
+<div class="page">
+  <div class="news" *ngFor="let currNews of news" [routerLink]="['/news', currNews.id]">
+    <div class="column">
+      <h3>{{currNews.title}}</h3>    
+      <p>{{currNews.publisher}}</p>
+    </div>
+    <div class="column">
+      <img [src]="'../../assets/news/' + currNews.imgSrc + '.jpg' || '.png'" alt="">
+      <p>{{currNews.date | date:'short'}}</p>
+    </div>
+  </div>
+</div>

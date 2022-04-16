@@ -1,0 +1,11 @@
+<div class="page">    
+  <div class="grid">
+    <!-- <app-teams *ngFor="let team of teams" [team]="team"></app-teams> -->
+    <div class="team" *ngFor="let team of teams" [routerLink]="['/teams', team.id]">
+      <div class="team-logo" [class.real-madrid]="team.logoSrc === 'real-madrid'">
+        <img [src]="'../../../assets/teams-logos/' + team.logoSrc + '.png'" alt="">
+      </div>
+      <p>{{team.name}}</p>
+    </div>
+  </div>  
+</div>

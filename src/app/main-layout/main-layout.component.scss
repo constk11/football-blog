@@ -1,0 +1,9 @@
+.main-layout {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  background: url('../../assets/bg.jpg') no-repeat;
+  background-repeat: repeat-y;
+  background-size: 100%;
+}
