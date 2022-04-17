@@ -10,6 +10,11 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { MatchesPageComponent } from './matches-page/matches-page.component';
 import { NewsComponent } from './news-page/news/news.component';
+import { MatchDatePipe } from './pipes/match-date.pipe';
+import { registerLocaleData } from '@angular/common';
+import ruLocale from '@angular/common/locales/ru';
+
+registerLocaleData(ruLocale, 'ru')
 
 @NgModule({
   declarations: [
@@ -20,7 +25,8 @@ import { NewsComponent } from './news-page/news/news.component';
     MainLayoutComponent,
     NewsPageComponent,
     MatchesPageComponent,
-    NewsComponent
+    NewsComponent,
+    MatchDatePipe
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,17 @@
-<p>matches-page works!</p>
+<div class="page">
+  <div class="match" *ngFor="let match of matches">
+    <p class="tournament">{{match.tournament}}</p>
+    <div>
+      <div class="team">
+        <img [src]="'../../assets/teams-logos/' + getLogoSrc(match.team1) + '.png'" [class.real-madrid]="match.team1 === 'Real Madrid'" alt="">
+        <p>{{match.team1}}</p>
+      </div>
+      <p *ngIf="match.score; else matchDate" class="score">{{match.score}}</p>
+      <ng-template #matchDate><p class="date">{{match.date | date:'long':undefined:'ru' | matchDate}}</p></ng-template>
+      <div class="team">
+        <img [src]="'../../assets/teams-logos/' + getLogoSrc(match.team2) + '.png'" [class.real-madrid]="match.team2 === 'Real Madrid'" alt="">
+        <p>{{match.team2}}</p>
+      </div>
+    </div>
+  </div>
+</div>
