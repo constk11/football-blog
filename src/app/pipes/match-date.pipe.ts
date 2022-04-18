@@ -3,13 +3,16 @@ import { Pipe, PipeTransform } from "@angular/core";
 @Pipe({name: 'matchDate'})
 export class MatchDatePipe implements PipeTransform {
   transform(date: string | null) {
-    if (date != null) {
-      const arr = date?.split(' ').filter((value, index) => index != 2 && index != 3 && index != 5);
-      arr[0] += ' '
-      arr[1] += ', '
-      arr[2] = arr[2].slice(0,5)      
+    if (date) {
+      const dateArr = date.split(',')
+      
+      if (dateArr[0].endsWith('т')) {
+        dateArr[0] += 'а'
+      } else {
+        dateArr[0] = dateArr[0].slice(0, -1) + 'я'
+      }
 
-      return arr.join('')
+      return dateArr.join(',')
     }
     
     return date
