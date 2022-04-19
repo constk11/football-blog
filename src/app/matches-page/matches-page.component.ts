@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Match, MathcesService } from '../services/matches.service';
+import { Match, MatchesService } from '../services/matches.service';
 
 @Component({
   selector: 'app-matches-page',
@@ -10,13 +10,16 @@ export class MatchesPageComponent implements OnInit {
 
   matches: Match[]
 
-  constructor(private matchesService: MathcesService) { }
+  teamsLogosPath = '../../assets/teams-logos/'
+  teamsLogosFormat = '.png'
+
+  constructor(private matchesService: MatchesService) { }
 
   ngOnInit(): void {
     this.matches = this.matchesService.getMatches()
   }
 
   getLogoSrc(teamName: string) {
-    return '../../assets/teams-logos/' + this.matchesService.getLogoSrc(teamName) + '.png'
+    return this.teamsLogosPath + this.matchesService.getLogoSrc(teamName) + this.teamsLogosFormat
   }
 }

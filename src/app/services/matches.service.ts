@@ -13,7 +13,7 @@ export interface Match {
   providedIn: 'root'
 })
 
-export class MathcesService {
+export class MatchesService {
   matches: Match[] = [
     {
       team1: 'FC Bayern',
@@ -51,7 +51,7 @@ export class MathcesService {
   getLogoSrc(teamName: string): string {
     const teams = this.teamsService.getTeams()
 
-    return teams.find(team => team.name == teamName)?.logoSrc as string
+    return teams.find(team => team.name == teamName)?.logoId as string
   }
 
   getMatches() {
@@ -90,6 +90,6 @@ export class MathcesService {
   }
 
   generateRandomScore(): string {
-    return Math.floor(Math.random()*9).toString() + ' : ' + Math.floor(Math.random()*9).toString()
+    return Math.floor(Math.random()*7).toString() + ' : ' + Math.floor(Math.random()*7).toString()
   }
 }
