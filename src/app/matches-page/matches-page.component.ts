@@ -11,16 +11,9 @@ export class MatchesPageComponent implements OnInit {
 
   matches: Match[]
 
-  teamsLogosPath = '../../assets/teams-logos/'
-  teamsLogosFormat = '.png'
-
   constructor(private matchesService: MatchesService) { }
 
   ngOnInit(): void {
     this.matches = this.matchesService.getMatches()
-  }
-
-  getLogoSrc(teamName: string) {
-    return this.teamsLogosPath + this.matchesService.getLogoSrc(teamName) + this.teamsLogosFormat
   }
 }

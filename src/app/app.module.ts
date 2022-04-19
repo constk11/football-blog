@@ -13,6 +13,7 @@ import { NewsComponent } from './news-page/news/news.component';
 import { MatchDatePipe } from './pipes/match-date.pipe';
 import { registerLocaleData } from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
+import { MatchComponent } from './matches-page/match/match.component';
 
 registerLocaleData(ruLocale, 'ru')
 
@@ -26,7 +27,8 @@ registerLocaleData(ruLocale, 'ru')
     NewsPageComponent,
     MatchesPageComponent,
     NewsComponent,
-    MatchDatePipe
+    MatchDatePipe,
+    MatchComponent
   ],
   imports: [
     BrowserModule,

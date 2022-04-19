@@ -1,38 +1,3 @@
 <div class="page">
-  <div class="match-wrap" *ngFor="let match of matches">
-    <p class="tournament">{{ match.tournament }}</p>
-    <div class="match">
-      <div class="team">
-        <div class="team-logo" [class.real-madrid]="match.team1 === 'Real Madrid'">
-          <img
-            [src]="getLogoSrc(match.team1)"            
-          />
-        </div>
-        <div class="team-name">
-          <p>{{ match.team1 }}</p>
-        </div>
-      </div>
-      <div class="past-match" *ngIf="match.score; else matchDate">
-        <p class="score">{{ match.score }}</p>
-        <p class="date">{{ match.date | date: "dd.MM" }}</p>
-      </div>
-      <ng-template #matchDate
-        ><div class="next-match">
-          <p class="date">
-            {{ match.date | date: "d MMMM, HH:mm":undefined:"ru"}}
-          </p>
-        </div></ng-template
-      >
-      <div class="team">
-        <div class="team-logo" [class.real-madrid]="match.team2 === 'Real Madrid'">
-          <img
-            [src]="getLogoSrc(match.team2)"            
-          />
-        </div>
-        <div class="team-name">
-          <p>{{ match.team2 }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-match *ngFor="let match of matches" [match]="match"></app-match>
 </div>
