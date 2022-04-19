@@ -1,16 +1,35 @@
 <div class="page">
   <div class="match" *ngFor="let match of matches">
-    <p class="tournament">{{match.tournament}}</p>
-    <div>
+    <p class="tournament">{{ match.tournament }}</p>
+    <div class="teams-wrap">
       <div class="team">
-        <img [src]="'../../assets/teams-logos/' + getLogoSrc(match.team1) + '.png'" [class.real-madrid]="match.team1 === 'Real Madrid'" alt="">
-        <p>{{match.team1}}</p>
+        <img
+          [src]="getLogoSrc(match.team1)"
+          [class.real-madrid]="match.team1 === 'Real Madrid'"
+        />
+        <div class="team-name">
+          <p>{{ match.team1 }}</p>
+        </div>
       </div>
-      <p *ngIf="match.score; else matchDate" class="score">{{match.score}}</p>      
-      <ng-template #matchDate><p class="date">{{match.date | date:'d LLLL, HH:mm':undefined:'ru' | matchDate}}</p></ng-template>
+      <div class="past-match" *ngIf="match.score; else matchDate">
+        <p class="score">{{ match.score }}</p>
+        <p class="date">{{ match.date | date: "dd.MM" }}</p>
+      </div>
+      <ng-template #matchDate
+        ><div class="next-match">
+          <p class="date">
+            {{ match.date | date: "d LLLL, HH:mm":undefined:"ru" | matchDate }}
+          </p>
+        </div></ng-template
+      >
       <div class="team">
-        <img [src]="'../../assets/teams-logos/' + getLogoSrc(match.team2) + '.png'" [class.real-madrid]="match.team2 === 'Real Madrid'" alt="">
-        <p>{{match.team2}}</p>
+        <img
+          [src]="getLogoSrc(match.team2)"
+          [class.real-madrid]="match.team2 === 'Real Madrid'"
+        />
+        <div class="team-name">
+          <p>{{ match.team2 }}</p>
+        </div>
       </div>
     </div>
   </div>

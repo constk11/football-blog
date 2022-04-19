@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamsService } from '../services/teams.service';
-
-export interface Match {
-  team1: string
-  team2: string
-  date?: Date
-  score?: string
-  tournament: string
-}
+import { Match, MathcesService } from '../services/matches.service';
 
 @Component({
   selector: 'app-matches-page',
@@ -16,31 +8,15 @@ export interface Match {
 })
 export class MatchesPageComponent implements OnInit {
 
-  matches: Match[] = [
-    {
-      team1: 'FC Bayern',
-      team2: 'Real Madrid',
-      date: new Date(0),
-      tournament: 'Лига чемпионов'
-    },
-    {
-      team1: 'Manchester United',
-      team2: 'Borrusia Dortmund',
-      score: '2 : 2',
-      tournament: 'Суперкубок УЕФА'
-    }
-  ]
+  matches: Match[]
 
-  constructor(private teamsService: TeamsService) { }
+  constructor(private matchesService: MathcesService) { }
 
   ngOnInit(): void {
-    
+    this.matches = this.matchesService.getMatches()
   }
 
-  getLogoSrc(teamName: string): string {
-    const teams = this.teamsService.getTeams()
-
-    return teams.find(team => team.name == teamName)?.logoSrc as string
+  getLogoSrc(teamName: string) {
+    return '../../assets/teams-logos/' + this.matchesService.getLogoSrc(teamName) + '.png'
   }
-
 }

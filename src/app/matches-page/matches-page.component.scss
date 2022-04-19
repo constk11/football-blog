@@ -11,8 +11,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;    
-    background-color: #128300;
-    margin-top: 40px;
+    background-color: #2a7357;
+    margin: 20px 0;
     border-radius: 15px;
     padding: 10px 30px;
 
@@ -21,41 +21,58 @@
       font-size: 18px;
     }
 
-    >div {
+    .teams-wrap {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-    }
+      padding-top: 10px;
 
-    .score {
-      font-size: 28px;
-    }
+      .next-match .date {
+        margin-top: 35px;
+        font-size: 18px;
+        max-width: 150px;
+        
+      }    
 
-    .date {
-      font-size: 18px;
-      max-width: 150px;
-    }
-
-    .team {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100px;
-
-      img {
-        width: 80px;
-        height: 80px;
-
-        &.real-madrid {
-          width: 60px;
-          height: 85px;
+      .past-match {
+        .score, .date {
+          text-align: center;
+        }
+        .score {
+          margin-top: 25px;
+          font-size: 28px;
+        }
+        .date {
+          margin-top: 40px;
         }
       }
 
-      p {
-        text-align: center;
-        margin-top: 5px;
-        line-height: 20px;
+      .team {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+  
+        img {
+          width: 80px;
+          height: 80px;
+  
+          &.real-madrid {
+            width: 60px;
+            height: 80px;
+          }
+        }
+  
+        .team-name {      
+          display: flex;
+          align-items: center;    
+          height: 40px;
+          margin-top: 5px;
+
+          p {
+            text-align: center;
+            line-height: 20px;
+          }
+        }        
       }
     }
   }
