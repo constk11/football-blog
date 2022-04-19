@@ -10,9 +10,16 @@ export class NewsPageComponent implements OnInit {
 
   news: News[]
 
+  newsPicturesPath = '../../assets/news/'
+  newsPicturesFormat = '.jpg'
+
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
     this.news = this.newsService.getNews()
+  }
+
+  getPictureSrc(pictureId: string): string {
+    return this.newsPicturesPath + pictureId + this.newsPicturesFormat
   }
 }

@@ -5,7 +5,7 @@ export interface News {
   date: Date,
   publisher: string,
   text: string,
-  imgSrc: string,
+  pictureId: string,
   id: string
 }
 
@@ -20,7 +20,7 @@ export class NewsService {
       date: new Date(),
       publisher: 'Спорт-Экспресс',
       text: 'Главный тренер «Аякса» Эрик тен Хаг, который якобы договорился о контракте с «Манчестер Юнайтед», не намерен работать с нападающим команды Криштиану Роналду, информирует Marca со ссылкой на The Daily Star.',
-      imgSrc: 'news1',
+      pictureId: 'news1',
       id: '21'
     },
     {
@@ -28,7 +28,7 @@ export class NewsService {
       date: new Date(),
       publisher: 'РИАМО',
       text: 'Столичный ФК «Спартак» в субботу выйдет на матч с казанским «Рубином» в форме, где фамилии футболистов будут нанесены шрифтом для незрячих людей, сообщает Газета.ru.',
-      imgSrc: 'news2',
+      pictureId: 'news2',
       id: '22'
     }
   ];
