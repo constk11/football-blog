@@ -40,36 +40,14 @@ export class MatchesService {
     this.matches = this.sortMatches(this.matches);
   }
 
-  getLogoSrc(teamName: string): string {
-    const teams = this.teamsService.getTeams();
-
-    return teams.find((team) => team.name == teamName)?.logoId as string;
-  }
-
   getMatches() {
     return this.matches;
   }
 
-  sortMatches(matches: Match[]): Match[] {
-    matches.sort((match1, match2) => {
-      if (match1.date > match2.date) {
-        return -1;
-      } else if (match1.date < match2.date) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-    matches.sort((match1, match2) => {
-      if (!match1.score && !match2.score && match1.date > match2.date) {
-        return 1;
-      } else if (!match1.score && !match2.score && match1.date < match2.date) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-    return matches;
+  getLogoSrc(teamName: string): string {
+    const teams = this.teamsService.getTeams();
+
+    return teams.find((team) => team.name == teamName)?.logoId as string;
   }
 
   checkExpiresMatchDate(matches: Match[]): Match[] {
@@ -87,5 +65,31 @@ export class MatchesService {
       ' : ' +
       Math.floor(Math.random() * 7).toString()
     );
+  }
+
+  sortMatches(matches: Match[]): Match[] {
+    matches.sort(this.sortByScoreAvailability);
+    matches.sort(this.sortByUpcoming);
+    return matches;
+  }
+
+  sortByScoreAvailability(match1: Match, match2: Match) {
+    if (match1.date > match2.date) {
+      return -1;
+    } else if (match1.date < match2.date) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  sortByUpcoming(match1: Match, match2: Match) {
+    if (!match1.score && !match2.score && match1.date > match2.date) {
+      return 1;
+    } else if (!match1.score && !match2.score && match1.date < match2.date) {
+      return -1;
+    } else {
+      return 0;
+    }
   }
 }
