@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import { MatchesPageComponent } from './matches-page/matches-page.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { TeamsPageComponent } from './teams-page/teams-page.component';

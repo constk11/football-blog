@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Team, TeamsService } from '../services/teams.service';
+import { TeamsService } from '../services/teams.service';
+import { Team } from '../shared/interfaces';
 
 @Component({
   selector: 'app-teams-page',

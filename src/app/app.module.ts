@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation/navigation-bar.component';
 import { TeamsPageComponent } from './teams-page/teams-page.component';
 import { TeamComponent } from './teams-page/team/team.component';
-import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { MatchesPageComponent } from './matches-page/matches-page.component';
 import { NewsComponent } from './news-page/news/news.component';
