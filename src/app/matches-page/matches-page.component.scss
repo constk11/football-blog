@@ -5,30 +5,30 @@
   align-items: center;
   margin-top: 50px;
 
-  .match {
+  .match-wrap {
     width: 460px;
     height: 175px;
     display: flex;
     flex-direction: column;
     justify-content: center;    
-    background-color: #2a7357;
+    background-color: var(--matches-bg);
     margin: 20px 0;
     border-radius: 15px;
     padding: 10px 30px;
 
     .tournament {
       text-align: center;
-      font-size: 18px;
+      font-size: var(--matches-tournament-text-size);
     }
 
-    .teams-wrap {
+    .match {
       display: flex;
       justify-content: space-between;
       padding-top: 10px;
 
       .next-match .date {
         margin-top: 35px;
-        font-size: 18px;
+        font-size: var(--matches-date-text-size);
         max-width: 150px;
         
       }    
@@ -39,7 +39,7 @@
         }
         .score {
           margin-top: 25px;
-          font-size: 28px;
+          font-size: var(--matches-score-text-size);
         }
         .date {
           margin-top: 40px;
@@ -53,7 +53,7 @@
         align-items: center;
         width: 100px;
   
-        img {
+        .team-logo {
           width: 80px;
           height: 80px;
   
