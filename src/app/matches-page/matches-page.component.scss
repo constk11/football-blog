@@ -59,7 +59,10 @@
   
           &.real-madrid {
             width: 60px;
-            height: 80px;
+
+            img {
+              height: 80px;
+            }
           }
         }
   
