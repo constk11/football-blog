@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
 
   .match-wrap {
     width: 460px;
@@ -12,7 +11,7 @@
     flex-direction: column;
     justify-content: center;    
     background-color: var(--matches-bg);
-    margin: 20px 0;
+    margin-bottom: 50px;
     border-radius: 15px;
     padding: 15px 30px;
 
