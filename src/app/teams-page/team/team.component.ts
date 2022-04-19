@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { TeamsService } from 'src/app/services/teams.service';
-import { Team } from '../teams-page.component';
+import { Team, TeamsService } from 'src/app/services/teams.service';
 
 @Component({
   selector: 'app-team',
