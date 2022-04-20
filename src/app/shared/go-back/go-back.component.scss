@@ -11,7 +11,7 @@
     width: 50px;
     height: 7px;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: var(--go-back-bg);
     
     &::before, &::after {
       content: '';
@@ -20,13 +20,13 @@
       left: -3px;      
       width: 30px;
       height: 7px;
-      background-color: #fff;
-      transform: rotate(-40deg);
+      background-color: var(--go-back-bg);      
       border-radius: 5px;
     }
 
     &::before {
       top: -8px;
+      transform: rotate(-40deg);
     }
 
     &::after {
