@@ -1,6 +1,6 @@
 <div class="page">    
   <div class="grid">
-    <div class="team-card card" *ngFor="let team of teams" [routerLink]="['/teams', team.id]">
+    <div class="team-card card" *ngFor="let team of teams" [routerLink]="['/teams', team.id]" [queryParams]="{isBack: true}">
       <div class="team-logo" [class.real-madrid]="team.logoId === 'real-madrid'">
         <img [src]="getLogoSrc(team.logoId)" alt="">
       </div>

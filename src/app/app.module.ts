@@ -14,6 +14,7 @@ import { MatchDatePipe } from './pipes/match-date.pipe';
 import { registerLocaleData } from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
 import { MatchComponent } from './matches-page/match/match.component';
+import { GoBackComponent } from './shared/go-back/go-back.component';
 
 registerLocaleData(ruLocale, 'ru')
 
@@ -28,7 +29,8 @@ registerLocaleData(ruLocale, 'ru')
     MatchesPageComponent,
     NewsComponent,
     MatchDatePipe,
-    MatchComponent
+    MatchComponent,
+    GoBackComponent
   ],
   imports: [
     BrowserModule,

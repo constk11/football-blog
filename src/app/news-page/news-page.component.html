@@ -1,5 +1,5 @@
 <div class="page">
-  <div class="news-card card" *ngFor="let currNews of news" [routerLink]="['/news', currNews.id]">
+  <div class="news-card card" *ngFor="let currNews of news" [routerLink]="['/news', currNews.id]" [queryParams]="{isBack: true}">
     <div class="column">
       <h3>{{currNews.title}}</h3>    
       <p>{{currNews.publisher}}</p>
