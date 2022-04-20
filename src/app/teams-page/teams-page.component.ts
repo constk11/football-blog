@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamsService } from '../services/teams.service';
-import { Team } from '../shared/interfaces';
+import { TeamBase } from '../shared/interfaces';
 
 @Component({
   selector: 'app-teams-page',
@@ -9,7 +9,7 @@ import { Team } from '../shared/interfaces';
 })
 export class TeamsPageComponent implements OnInit {
   
-  teams: Team[]
+  teamsPreview: TeamBase[]
 
   teamsLogosPath = '../../assets/teams-logos/'
   teamsLogosFormat = '.png'
@@ -17,7 +17,7 @@ export class TeamsPageComponent implements OnInit {
   constructor(private teamsService: TeamsService) { }
 
   ngOnInit(): void {
-    this.teams = this.teamsService.getTeams()
+    this.teamsPreview = this.teamsService.getTeamsPreview()
   }
 
   getLogoSrc(logoId: string): string {

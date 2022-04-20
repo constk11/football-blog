@@ -45,7 +45,7 @@ export class MatchesService {
   }
 
   getLogoSrc(teamName: string): string {
-    const teams = this.teamsService.getTeams();
+    const teams = this.teamsService.getTeamsPreview();
 
     return teams.find((team) => team.name == teamName)?.logoId as string;
   }
