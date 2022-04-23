@@ -1,0 +1,53 @@
+.extra {
+  background-color: var(--team-extra-bg);
+  border-radius: 5px;
+  padding: 10px 20px 20px 20px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 22px;
+}
+
+span.bold {
+  display: inline-block;
+  font-weight: bold;
+  width: 130px;
+}
+
+.team-extra {
+  .team-logo {    
+    width: 150px;
+    height: 150px;
+    margin: 15px auto;
+
+    &.real-madrid {
+      width: 75px;
+      height: 100px;
+    }
+  }
+
+  p {
+    margin-top: 10px;
+
+    &.description {
+      line-height: 22px;
+      margin: 15px 0;
+    }
+  }
+}
+
+.player-extra {
+  .player-photo {
+    margin: 15px auto;
+    width: 250px;
+
+    img {
+      border-radius: 5px;
+    }
+  }
+
+  p {
+    margin-top: 5px;
+  }
+}

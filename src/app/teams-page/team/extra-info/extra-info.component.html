@@ -1,0 +1,22 @@
+<div class="team-extra extra" *ngIf="isTeam(subject)">
+  <h3 class="title">{{subject.name}}</h3>
+  <div class="team-logo">
+    <img [src]="getImageSrc(subject.logoId, imagesTypes.teamLogo)" alt="">
+  </div>
+  <p class="description">{{subject.description}}</p>
+  <p class="stadium"><span class="bold">Стадион:</span> {{subject.stadium}}</p>
+  <p class="foundation-date"><span class="bold">Дата основания:</span> {{subject.foundationDate | date:'d MMMM YYYY':undefined:'ru'}} г.</p>
+</div>
+<div class="player-extra extra" *ngIf="isPlayer(subject)">
+  <h3 class="title">{{subject.firstName + ' ' + subject.lastName}}</h3>
+  <div class="player-photo">
+    <img [src]="getImageSrc(subject.photoId, imagesTypes.playerPhoto)" alt="">
+  </div>
+  <div class="specifications">
+    <p><span class="bold">Возраст:</span> {{subject.age}}</p>
+    <p><span class="bold">Гражданство:</span> {{subject.nationality}}</p>
+    <p><span class="bold">Рост:</span> {{subject.height}}</p>
+    <p><span class="bold">Позиция:</span> {{subject.position}}</p>
+    <p><span class="bold">Номер:</span> {{subject.number}}</p>
+  </div>
+</div>
