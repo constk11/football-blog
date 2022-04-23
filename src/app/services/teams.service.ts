@@ -22,7 +22,7 @@ export class TeamsService {
       age: 33,
       nationality: 'Poland',
       number: 9,
-      position: 'striker',
+      position: 'ST',
       photoId: 'r-lewandowski',
       team: 'FC Bayern'
     },
@@ -33,7 +33,7 @@ export class TeamsService {
       age: 32,
       nationality: 'Germany',
       number: 25,
-      position: 'Attacking midfielder',
+      position: 'CAM',
       photoId: 't-muller',
       team: 'FC Bayern'
     },
@@ -44,7 +44,7 @@ export class TeamsService {
       age: 36,
       nationality: 'Germany',
       number: 1,
-      position: 'Goalkeeper',
+      position: 'GK',
       photoId: 'm-neuer',
       team: 'FC Bayern'
     },
@@ -55,8 +55,8 @@ export class TeamsService {
       age: 37,
       nationality: 'Portugal',
       number: 7,
-      position: 'Goalkeeper',
-      photoId: 'forward',
+      position: 'ST',
+      photoId: 'c-ronaldo',
       team: 'Manchester United'
     },
     {
@@ -66,7 +66,7 @@ export class TeamsService {
       age: 35,
       nationality: 'Uruguay',
       number: 21,
-      position: 'striker',
+      position: 'ST',
       photoId: 'e-cavani',
       team: 'Manchester United'
     },
@@ -77,7 +77,7 @@ export class TeamsService {
       age: 24,
       nationality: 'England',
       number: 29,
-      position: 'Right=back',
+      position: 'RB',
       photoId: 'a-w-bissaka',
       team: 'Manchester United'
     },
@@ -100,6 +100,9 @@ export class TeamsService {
     }
   ]
 
+  teamsLogosPath = '../../assets/teams-logos/'
+  teamsLogosFormat = '.png'
+
   getPlayers(teamName: string): Player[] {
     return this.players.filter(p => p.team == teamName)
   }
@@ -110,5 +113,9 @@ export class TeamsService {
 
   getTeamById(id: string) {
     return this.teams.find(t => t.id === id);
+  }
+
+  getLogoSrc(logoId: string) {
+    return this.teamsLogosPath + logoId + this.teamsLogosFormat
   }
 }
