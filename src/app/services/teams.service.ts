@@ -24,7 +24,7 @@ export class TeamsService {
       number: 9,
       position: 'ST',
       photoId: 'r-lewandowski',
-      team: 'FC Bayern'
+      team: 'FC Bayern',
     },
     {
       firstName: 'Thomas',
@@ -35,7 +35,7 @@ export class TeamsService {
       number: 25,
       position: 'CAM',
       photoId: 't-muller',
-      team: 'FC Bayern'
+      team: 'FC Bayern',
     },
     {
       firstName: 'Manuel',
@@ -46,7 +46,7 @@ export class TeamsService {
       number: 1,
       position: 'GK',
       photoId: 'm-neuer',
-      team: 'FC Bayern'
+      team: 'FC Bayern',
     },
     {
       firstName: 'Cristiano',
@@ -57,7 +57,7 @@ export class TeamsService {
       number: 7,
       position: 'ST',
       photoId: 'c-ronaldo',
-      team: 'Manchester United'
+      team: 'Manchester United',
     },
     {
       firstName: 'Edinson',
@@ -68,7 +68,7 @@ export class TeamsService {
       number: 21,
       position: 'ST',
       photoId: 'e-cavani',
-      team: 'Manchester United'
+      team: 'Manchester United',
     },
     {
       firstName: 'Aaron',
@@ -79,32 +79,31 @@ export class TeamsService {
       number: 29,
       position: 'RB',
       photoId: 'a-w-bissaka',
-      team: 'Manchester United'
+      team: 'Manchester United',
     },
-  ]
+  ];
 
   teams: Team[] = [
     {
       ...this.teamsPreview[0],
       stadium: 'Альянц Арена',
-      description: 'Профессиональный немецкий футбольный клуб из города Мюнхена. Основан в 1900 году. Самый титулованный клуб Германии и один из самых титулованных клубов мира.',
+      description:
+        'Профессиональный немецкий футбольный клуб из города Мюнхена. Основан в 1900 году. Самый титулованный клуб Германии и один из самых титулованных клубов мира.',
       foundationDate: new Date(1900, 1, 27),
-      players: this.getPlayers(this.teamsPreview[0].name)
+      players: this.getPlayers(this.teamsPreview[0].name),
     },
     {
       ...this.teamsPreview[4],
       stadium: 'Олд Траффорд',
-      description: 'Английский профессиональный футбольный клуб из Траффорда, Большой Манчестер. Был основан в 1878 году под названием «Ньютон Хит», в 1902 году изменил название на «Манчестер Юнайтед». Один из самых популярных футбольных клубов в мире. Один из основателей английской Премьер-лиги в 1992 году.',
+      description:
+        'Английский профессиональный футбольный клуб из Траффорда, Большой Манчестер. Был основан в 1878 году под названием «Ньютон Хит», в 1902 году изменил название на «Манчестер Юнайтед». Один из самых популярных футбольных клубов в мире. Один из основателей английской Премьер-лиги в 1992 году.',
       foundationDate: new Date(1878, 2, 5),
-      players: this.getPlayers(this.teamsPreview[4].name)
-    }
-  ]
-
-  teamsLogosPath = '../../assets/teams-logos/'
-  teamsLogosFormat = '.png'
+      players: this.getPlayers(this.teamsPreview[4].name),
+    },
+  ];
 
   getPlayers(teamName: string): Player[] {
-    return this.players.filter(p => p.team == teamName)
+    return this.players.filter((p) => p.team == teamName);
   }
 
   getTeamsPreview() {
@@ -112,10 +111,6 @@ export class TeamsService {
   }
 
   getTeamById(id: string) {
-    return this.teams.find(t => t.id === id);
-  }
-
-  getLogoSrc(logoId: string) {
-    return this.teamsLogosPath + logoId + this.teamsLogosFormat
+    return this.teams.find((t) => t.id === id);
   }
 }

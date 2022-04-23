@@ -1,6 +1,6 @@
 export interface Match {
-  team1: string,
-  team2: string,
+  team1: TeamBase,
+  team2: TeamBase,
   date: Date,
   score?: string,
   tournament: string

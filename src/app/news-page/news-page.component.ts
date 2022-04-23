@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../services/news.service';
 import { News } from '../shared/interfaces';
+import { ImageService } from '../shared/services/image.service';
+import { imagesTypes } from '../shared/images-types';
 
 @Component({
   selector: 'app-news-page',
@@ -11,16 +13,13 @@ export class NewsPageComponent implements OnInit {
 
   news: News[]
 
-  newsPicturesPath = '../../assets/news/'
-  newsPicturesFormat = '.jpg'
-
-  constructor(private newsService: NewsService) {}
+  constructor(private newsService: NewsService, private imageService: ImageService) {}
 
   ngOnInit(): void {
     this.news = this.newsService.getNews()
   }
 
   getPictureSrc(pictureId: string): string {
-    return this.newsPicturesPath + pictureId + this.newsPicturesFormat
+    return this.imageService.getImageSrc(pictureId, imagesTypes.newsPicture)
   }
 }

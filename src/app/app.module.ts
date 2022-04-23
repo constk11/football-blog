@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation/navigation-bar.component';
 import { TeamsPageComponent } from './teams-page/teams-page.component';
 import { TeamComponent } from './teams-page/team/team.component';
-import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
+import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { MatchesPageComponent } from './matches-page/matches-page.component';
 import { NewsComponent } from './news-page/news/news.component';
@@ -14,7 +14,8 @@ import { MatchDatePipe } from './pipes/match-date.pipe';
 import { registerLocaleData } from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
 import { MatchComponent } from './matches-page/match/match.component';
-import { GoBackComponent } from './shared/go-back/go-back.component';
+import { GoBackComponent } from './shared/components/go-back/go-back.component';
+import { ExtraInfoComponent } from './teams-page/team/extra-info/extra-info.component';
 
 registerLocaleData(ruLocale, 'ru')
 
@@ -30,7 +31,8 @@ registerLocaleData(ruLocale, 'ru')
     NewsComponent,
     MatchDatePipe,
     MatchComponent,
-    GoBackComponent
+    GoBackComponent,
+    ExtraInfoComponent
   ],
   imports: [
     BrowserModule,

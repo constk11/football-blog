@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatchesService } from 'src/app/services/matches.service';
 import { Match } from 'src/app/shared/interfaces';
+import { ImageService } from 'src/app/shared/services/image.service';
+import { imagesTypes } from 'src/app/shared/images-types';
 
 @Component({
   selector: 'app-match',
@@ -11,15 +12,12 @@ export class MatchComponent implements OnInit {
 
   @Input() match: Match
 
-  teamsLogosPath = '../../assets/teams-logos/'
-  teamsLogosFormat = '.png'
-
-  constructor(private matchesService: MatchesService) { }
+  constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
   }
 
-  getLogoSrc(teamName: string) {
-    return this.teamsLogosPath + this.matchesService.getLogoSrc(teamName) + this.teamsLogosFormat
+  getLogoSrc(logoId: string): string {
+    return this.imageService.getImageSrc(logoId, imagesTypes.teamLogo)
   }
 }

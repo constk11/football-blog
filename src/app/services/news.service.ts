@@ -25,18 +25,11 @@ export class NewsService {
     },
   ];
 
-  newsPicturesPath = '../../assets/news/'
-  newsPicturesFormat = '.jpg'
-
   getNews() {
     return this.news;
   }
 
   getNewsById(id: string) {
     return this.news.find((news) => news.id == id);
-  }
-
-  getPictureSrc(pictureId: string): string {
-    return this.newsPicturesPath + pictureId + this.newsPicturesFormat
   }
 }
