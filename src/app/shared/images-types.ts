@@ -1,5 +1,6 @@
 export const imagesTypes = {
   teamLogo: 'teamLogo',
   playerPhoto: 'playerPhoto',
-  newsPicture: 'newsPicture'
+  newsPicture: 'newsPicture',
+  countryIcon: 'countryIcon'
 }

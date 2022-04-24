@@ -21,7 +21,9 @@
       <p class="bold">Гражданство:</p>
       <div>
         <p>{{subject.nationality}}</p>
-        <img src="" alt="">
+        <div class="country-icon">
+          <img [src]="getImageSrc(subject.nationality.toLowerCase(), imagesTypes.countryIcon)" alt="">
+        </div>
       </div>
     </div>
     <div class="height">

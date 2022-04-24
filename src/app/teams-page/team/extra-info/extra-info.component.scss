@@ -57,6 +57,12 @@ h3 {
 
     &.nationality div {
       display: flex;
+      align-items: center;
+
+      .country-icon {
+        width: 22px;
+        margin: 3px 0 0 7px;
+      }
     }
   }
 }

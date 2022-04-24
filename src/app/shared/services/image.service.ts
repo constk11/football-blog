@@ -8,7 +8,8 @@ export class ImageService {
   imagesPaths = {
     teamLogo: {path: '../../assets/teams-logos/', format: '.png'},
     playerPhoto: {path: '../../assets/players/', format: '.jpg'},
-    newsPicture: {path: '../../assets/news/', format: '.jpg'}
+    newsPicture: {path: '../../assets/news/', format: '.jpg'},
+    countryIcon: {path: '../../assets/countries/', format: '.png'}
   }
 
   getImageSrc(imageId: string, imageType: string): string {
