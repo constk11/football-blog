@@ -77,6 +77,18 @@ export class PlayersService {
   ];
 
   getTeamPlayers(teamName: string) {
-    return this.players.filter((p) => p.team == teamName)
+    return this.sortPlayersByPosition(this.players.filter((p) => p.team == teamName))
+  }
+
+  sortPlayersByPosition(players: Player[]): Player[] {
+    return players.sort((player1, player2) => {
+      if (this.positionsOrder.indexOf(player1.position) < this.positionsOrder.indexOf(player2.position)) {
+        return -1
+      } else if (this.positionsOrder.indexOf(player1.position) > this.positionsOrder.indexOf(player2.position)) {
+        return 1
+      } else {
+        return 0
+      }
+    })
   }
 }
