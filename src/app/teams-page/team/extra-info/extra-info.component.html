@@ -13,10 +13,28 @@
     <img [src]="getImageSrc(subject.photoId, imagesTypes.playerPhoto)" alt="">
   </div>
   <div class="specifications">
-    <p><span class="bold">Возраст:</span> {{subject.age}}</p>
-    <p><span class="bold">Гражданство:</span> {{subject.nationality}}</p>
-    <p><span class="bold">Рост:</span> {{subject.height}}</p>
-    <p><span class="bold">Позиция:</span> {{getFullPosition(subject.position)}}</p>
-    <p><span class="bold">Номер:</span> {{subject.number}}</p>
+    <div class="age">
+      <p class="bold">Возраст:</p>
+      <p>{{subject.age}}</p>
+    </div>
+    <div class="nationality">
+      <p class="bold">Гражданство:</p>
+      <div>
+        <p>{{subject.nationality}}</p>
+        <img src="" alt="">
+      </div>
+    </div>
+    <div class="height">
+      <p class="bold">Рост:</p>
+      <p>{{subject.height}}</p>
+    </div>
+    <div class="position">
+      <p class="bold">Позиция:</p>
+      <p>{{getFullPosition(subject.position)}}</p>
+    </div>
+    <div class="number">
+      <p class="bold">Номер:</p>
+      <p>{{subject.number}}</p>
+    </div>
   </div>
 </div>

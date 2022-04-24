@@ -9,7 +9,7 @@ h3 {
   font-size: 22px;
 }
 
-span.bold {
+.bold {
   display: inline-block;
   font-weight: bold;
   width: 130px;
@@ -49,5 +49,14 @@ span.bold {
 
   p {
     margin-top: 5px;
+  }
+
+  .specifications > div {
+    display: flex;
+    align-items: center;
+
+    &.nationality div {
+      display: flex;
+    }
   }
 }
