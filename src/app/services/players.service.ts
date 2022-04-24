@@ -5,7 +5,25 @@ import { Player } from "../shared/interfaces";
   providedIn: 'root'
 })
 export class PlayersService {
-  positionsOrder: string[] = ['GK','LWB','LB', 'RWB', 'RB', 'CB', 'CDM', 'CM', 'LM', 'RM', 'CAM', 'LW', 'RW', 'CF', 'LF', 'RF', 'ST']
+  playersPositions: Object[] = [
+    {GK: 'Goalkeeper'},
+    {LWB: 'Left WingBack'},
+    {LB: 'Left Back'},
+    {RWB: 'Right WingBack'}, 
+    {RB: 'Right Back'}, 
+    {CB: 'Centre Back'}, 
+    {CDM: 'Centre Defensive Midfielders'}, 
+    {CM: 'Centre Midfielders'}, 
+    {LM: 'Left Midfielder'}, 
+    {RM: 'Right Midfielder'}, 
+    {CAM: 'Centre Attacking Midfielder'}, 
+    {LW: 'Left Winger'}, 
+    {RW: 'Right Winger'}, 
+    {CF: 'Centre Forward'}, 
+    {LF: 'Left Forward'}, 
+    {RF: 'Right Forward'}, 
+    {ST: 'Striker'}
+  ]
 
   players: Player[] = [
     {
@@ -81,14 +99,25 @@ export class PlayersService {
   }
 
   sortPlayersByPosition(players: Player[]): Player[] {
+    const positionsOrder = this.playersPositions.map(pos => Object.keys(pos)[0])
+
     return players.sort((player1, player2) => {
-      if (this.positionsOrder.indexOf(player1.position) < this.positionsOrder.indexOf(player2.position)) {
+      if (positionsOrder.indexOf(player1.position) < positionsOrder.indexOf(player2.position)) {
         return -1
-      } else if (this.positionsOrder.indexOf(player1.position) > this.positionsOrder.indexOf(player2.position)) {
+      } else if (positionsOrder.indexOf(player1.position) > positionsOrder.indexOf(player2.position)) {
         return 1
       } else {
         return 0
       }
     })
+  }
+
+  getFullPosition(position: string) {
+    const fullPosition = this.playersPositions.find(pos => pos[position as keyof Object])
+    if (fullPosition) {
+      return fullPosition[position as keyof Object]
+    }
+
+    return position
   }
 }
