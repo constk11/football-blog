@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Route, Router, UrlSegment } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-go-back',
@@ -8,7 +8,7 @@ import { ActivatedRoute, Params, Route, Router, UrlSegment } from '@angular/rout
 })
 export class GoBackComponent implements OnInit {
 
-  isBack: boolean = false
+  public isBack: boolean = false
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -18,7 +18,7 @@ export class GoBackComponent implements OnInit {
     })
   }
 
-  goBack() {
+  public goBack(): void {
     const currentLocation = '/' + this.router.url.split('/')[1]
 
     this.router.navigate([currentLocation])

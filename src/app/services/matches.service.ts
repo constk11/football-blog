@@ -6,7 +6,7 @@ import { TeamsService } from './teams.service';
   providedIn: 'root',
 })
 export class MatchesService {
-  matches: Match[] = [
+  private matches: Match[] = [
     {
       team1: {name: 'FC Bayern', logoId: 'bayern'},
       team2: {name: 'Real Madrid', logoId: 'real-madrid'},
@@ -40,17 +40,17 @@ export class MatchesService {
     this.matches = this.sortMatches(this.matches);
   }
 
-  getMatches() {
+  public getMatches(): Match[] {
     return this.matches;
   }
 
-  getLogoSrc(teamName: string): string {
+  public getLogoSrc(teamName: string): string {
     const teams = this.teamsService.getTeamsPreview();
 
     return teams.find((team) => team.name == teamName)?.logoId as string;
   }
 
-  checkExpiresMatchDate(matches: Match[]): Match[] {
+  private checkExpiresMatchDate(matches: Match[]): Match[] {
     matches.map((match) => {
       if (match.date < new Date() && !match.score) {
         match.score = this.generateRandomScore();
@@ -59,7 +59,7 @@ export class MatchesService {
     return matches;
   }
 
-  generateRandomScore(): string {
+  private generateRandomScore(): string {
     return (
       Math.floor(Math.random() * 7).toString() +
       ' : ' +
@@ -67,13 +67,13 @@ export class MatchesService {
     );
   }
 
-  sortMatches(matches: Match[]): Match[] {
+  private sortMatches(matches: Match[]): Match[] {
     matches.sort(this.sortByScoreAvailability);
     matches.sort(this.sortByUpcoming);
     return matches;
   }
 
-  sortByScoreAvailability(match1: Match, match2: Match) {
+  private sortByScoreAvailability(match1: Match, match2: Match) {
     if (match1.date > match2.date) {
       return -1;
     } else if (match1.date < match2.date) {
@@ -83,7 +83,7 @@ export class MatchesService {
     }
   }
 
-  sortByUpcoming(match1: Match, match2: Match) {
+  private sortByUpcoming(match1: Match, match2: Match) {
     if (!match1.score && !match2.score && match1.date > match2.date) {
       return 1;
     } else if (!match1.score && !match2.score && match1.date < match2.date) {

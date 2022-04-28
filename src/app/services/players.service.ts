@@ -5,7 +5,7 @@ import { Player } from "../shared/interfaces";
   providedIn: 'root'
 })
 export class PlayersService {
-  playersPositions: Object[] = [
+  private playersPositions: Object[] = [
     {GK: 'Goalkeeper'},
     {LWB: 'Left WingBack'},
     {LB: 'Left Back'},
@@ -25,7 +25,7 @@ export class PlayersService {
     {ST: 'Striker'}
   ]
 
-  players: Player[] = [
+  private players: Player[] = [
     {
       firstName: 'Robert',
       lastName: 'Lewandowski',
@@ -94,11 +94,11 @@ export class PlayersService {
     },
   ];
 
-  getTeamPlayers(teamName: string) {
+  public getTeamPlayers(teamName: string): Player[] {
     return this.sortPlayersByPosition(this.players.filter((p) => p.team == teamName))
   }
 
-  sortPlayersByPosition(players: Player[]): Player[] {
+  private sortPlayersByPosition(players: Player[]): Player[] {
     const positionsOrder = this.playersPositions.map(pos => Object.keys(pos)[0])
 
     return players.sort((player1, player2) => {
@@ -112,10 +112,10 @@ export class PlayersService {
     })
   }
 
-  getFullPosition(position: string) {
+  public getFullPosition(position: string): string {
     const fullPosition = this.playersPositions.find(pos => pos[position as keyof Object])
     if (fullPosition) {
-      return fullPosition[position as keyof Object]
+      return fullPosition[position as keyof Object].toString()
     }
 
     return position

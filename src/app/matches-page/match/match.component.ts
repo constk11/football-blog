@@ -17,7 +17,7 @@ export class MatchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getLogoSrc(logoId: string): string {
+  public getLogoSrc(logoId: string): string {
     return this.imageService.getImageSrc(logoId, imagesTypes.teamLogo)
   }
 }

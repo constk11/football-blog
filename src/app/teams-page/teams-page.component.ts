@@ -11,7 +11,7 @@ import { ImageService } from '../shared/services/image.service';
 })
 export class TeamsPageComponent implements OnInit {
   
-  teamsPreview: TeamBase[]
+  public teamsPreview: TeamBase[]
 
   constructor(private teamsService: TeamsService, private imageService: ImageService) { }
 
@@ -19,7 +19,7 @@ export class TeamsPageComponent implements OnInit {
     this.teamsPreview = this.teamsService.getTeamsPreview()
   }
 
-  getLogoSrc(logoId: string): string {
+  public getLogoSrc(logoId: string): string {
     return this.imageService.getImageSrc(logoId, imagesTypes.teamLogo)
   }
 }

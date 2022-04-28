@@ -10,7 +10,7 @@ import { News } from 'src/app/shared/interfaces';
 })
 export class NewsComponent implements OnInit {
 
-  news: News
+  public news: News
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) { }
 

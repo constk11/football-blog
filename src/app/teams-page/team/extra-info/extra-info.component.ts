@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PlayersService } from 'src/app/services/players.service';
-import { TeamsService } from 'src/app/services/teams.service';
 import { imagesTypes } from 'src/app/shared/images-types';
 import { Player, Team } from 'src/app/shared/interfaces';
 import { ImageService } from 'src/app/shared/services/image.service';
@@ -12,28 +11,28 @@ import { ImageService } from 'src/app/shared/services/image.service';
 })
 export class ExtraInfoComponent implements OnInit {
 
-  imagesTypes = imagesTypes
+  public imagesTypes = imagesTypes
 
   @Input() subject: Team | Player
 
-  constructor(private teamsService: TeamsService, private imageService: ImageService, private playersService: PlayersService) { }
+  constructor(private imageService: ImageService, private playersService: PlayersService) { }
 
   ngOnInit(): void {
   }
 
-  isTeam(subject: any): subject is Team {
+  public isTeam(subject: any): subject is Team {
     return 'name' in subject
   }
 
-  isPlayer(subject: any): subject is Player {
+  public isPlayer(subject: any): subject is Player {
     return 'lastName' in subject
   }
 
-  getImageSrc(logoId: string, imageType: string): string {
+  public getImageSrc(logoId: string, imageType: string): string {
     return this.imageService.getImageSrc(logoId, imageType)
   }
 
-  getFullPosition(position: string) {
+  public getFullPosition(position: string): string {
     return this.playersService.getFullPosition(position)
   }
 }

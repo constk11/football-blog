@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TeamsService } from 'src/app/services/teams.service';
 import { Player, Team } from 'src/app/shared/interfaces';
@@ -10,8 +10,8 @@ import { Player, Team } from 'src/app/shared/interfaces';
 })
 export class TeamComponent implements OnInit {
 
-  team: Team
-  subject: Team | Player
+  public team: Team
+  public subject: Team | Player
 
   constructor(private route: ActivatedRoute, private teamsService: TeamsService) { }
 
@@ -22,7 +22,7 @@ export class TeamComponent implements OnInit {
     })
   }
 
-  public showExtra(event: Event, subject: Player | Team) {
+  public showExtra(event: Event, subject: Player | Team): void {
     const elem = (<HTMLElement>event.target)
 
     this.removeActive();

@@ -9,7 +9,7 @@ import { Match } from '../shared/interfaces';
 })
 export class MatchesPageComponent implements OnInit {
 
-  matches: Match[]
+  public matches: Match[]
 
   constructor(private matchesService: MatchesService) { }
 

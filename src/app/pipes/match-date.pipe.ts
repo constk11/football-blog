@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({name: 'matchDate'})
 export class MatchDatePipe implements PipeTransform {
-  transform(date: string | null) {
+  public transform(date: string | null): string | null {
     if (date) {
       const dateArr = date.split(',')
       

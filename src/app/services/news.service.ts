@@ -5,7 +5,7 @@ import { News } from '../shared/interfaces';
   providedIn: 'root',
 })
 export class NewsService {
-  news: News[] = [
+  private news: News[] = [
     {
       title: 'Роналду в ближайшее время может покинуть «Манчестер Юнайтед»',
       date: new Date(),
@@ -25,11 +25,11 @@ export class NewsService {
     },
   ];
 
-  getNews() {
+  public getNews(): News[] {
     return this.news;
   }
 
-  getNewsById(id: string) {
+  public getNewsById(id: string): News | undefined {
     return this.news.find((news) => news.id == id);
   }
 }

@@ -5,14 +5,14 @@ import { Injectable } from "@angular/core";
 })
 export class ImageService {
   
-  imagesPaths = {
+  private imagesPaths = {
     teamLogo: {path: '../../assets/teams-logos/', format: '.png'},
     playerPhoto: {path: '../../assets/players/', format: '.jpg'},
     newsPicture: {path: '../../assets/news/', format: '.jpg'},
     countryIcon: {path: '../../assets/countries/', format: '.png'}
   }
 
-  getImageSrc(imageId: string, imageType: string): string {
+  public getImageSrc(imageId: string, imageType: string): string {
     return (
       this.imagesPaths[imageType as keyof typeof this.imagesPaths].path +
       imageId +

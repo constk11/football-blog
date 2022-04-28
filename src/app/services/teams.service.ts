@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Player, Team, TeamBase } from '../shared/interfaces';
+import { Team, TeamBase } from '../shared/interfaces';
 import { PlayersService } from './players.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TeamsService {
-  teamsPreview: TeamBase[] = [
+  private teamsPreview: TeamBase[] = [
     { name: 'FC Bayern', logoId: 'bayern', id: '11' },
     { name: 'FC Barcelona', logoId: 'barcelona', id: '12' },
     { name: 'Real Madrid', logoId: 'real-madrid', id: '13' },
@@ -15,7 +15,7 @@ export class TeamsService {
     { name: 'Borussia Dortmund', logoId: 'borussia', id: '16' },
   ];
 
-  teams: Team[] = [
+  private teams: Team[] = [
     {
       ...this.teamsPreview[0],
       stadium: 'Альянц Арена',
@@ -36,11 +36,11 @@ export class TeamsService {
 
   constructor(private playersService: PlayersService) {}
 
-  getTeamsPreview() {
+  public getTeamsPreview(): TeamBase[] {
     return this.teamsPreview;
   }
 
-  getTeamById(id: string) {
+  public getTeamById(id: string): Team | undefined {
     return this.teams.find((t) => t.id === id);
   }
 }

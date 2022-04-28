@@ -11,7 +11,7 @@ import { imagesTypes } from '../shared/images-types';
 })
 export class NewsPageComponent implements OnInit {
 
-  news: News[]
+  public news: News[]
 
   constructor(private newsService: NewsService, private imageService: ImageService) {}
 
@@ -19,7 +19,7 @@ export class NewsPageComponent implements OnInit {
     this.news = this.newsService.getNews()
   }
 
-  getPictureSrc(pictureId: string): string {
+  public getPictureSrc(pictureId: string): string {
     return this.imageService.getImageSrc(pictureId, imagesTypes.newsPicture)
   }
 }
