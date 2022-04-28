@@ -1,2 +1,13 @@
-<h3>{{news.title}}</h3>
-<p>{{news.text}}</p>
+<div class="news-wrap">
+  <div class="news">
+    <div class="news-source">
+      <p class="news-date">{{news.date | date: "d MMMM y, H:mm":undefined:"ru"}}</p>
+      <p class="news-publisher">{{news.publisher}}</p>
+    </div>
+    <h2 class="news-title">{{news.title}}</h2>
+    <div class="news-picture">
+      <img [src]="getImageSrc(news.pictureId)" alt="">
+    </div>
+    <p class="news-text">{{news.text}}</p>
+  </div>
+</div>
