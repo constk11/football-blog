@@ -39,3 +39,14 @@ export interface Player {
   team: string,
   photoId: string
 }
+
+export interface User {
+  email: string,
+  password: string
+  returnSecureToken?: boolean
+}
+
+export interface FbAuthResponse {
+  idToken: string
+  expiresIn: string
+}

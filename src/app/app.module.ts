@@ -16,6 +16,9 @@ import ruLocale from '@angular/common/locales/ru';
 import { MatchComponent } from './matches-page/match/match.component';
 import { GoBackComponent } from './shared/components/go-back/go-back.component';
 import { ExtraInfoComponent } from './teams-page/team/extra-info/extra-info.component';
+import { AuthComponent } from './auth/auth.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(ruLocale, 'ru')
 
@@ -32,11 +35,14 @@ registerLocaleData(ruLocale, 'ru')
     MatchDatePipe,
     MatchComponent,
     GoBackComponent,
-    ExtraInfoComponent
+    ExtraInfoComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

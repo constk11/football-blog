@@ -14,6 +14,8 @@
   --navbar-bg: #66BA25;
   --active-link-color: #21325F;
   --auth-link-bg: #21325F;
+  --auth-login-active-bg: #fff;
+  --auth-login-border: 1px solid #21325F;
 
   --team-card-bg: rgb(0, 0, 139, 0.8);
   --team-card-hover-bg: rgb(0, 0, 139, 1);
@@ -31,6 +33,8 @@
   --go-back-bg: #fff;
 
   --team-extra-bg: #00008b;
+
+  --form-bg: #fff;
 }
 
 * {

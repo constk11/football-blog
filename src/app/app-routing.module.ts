@@ -7,6 +7,7 @@ import { NewsPageComponent } from './news-page/news-page.component';
 import { TeamsPageComponent } from './teams-page/teams-page.component';
 import { TeamComponent } from './teams-page/team/team.component';
 import { NewsComponent } from './news-page/news/news.component';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,9 @@ const routes: Routes = [
       {path: 'teams/:id', component: TeamComponent},
       {path: 'news', component: NewsPageComponent},
       {path: 'news/:id', component: NewsComponent},
-      {path: 'matches', component: MatchesPageComponent}
+      {path: 'matches', component: MatchesPageComponent},
+
+      {path: 'auth', component: AuthComponent}
     ],
   },
 ];
