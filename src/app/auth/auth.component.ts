@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { User } from '../shared/interfaces';
 
@@ -11,15 +11,26 @@ import { User } from '../shared/interfaces';
 })
 export class AuthComponent implements OnInit {
 
+  public errorMessage = ''
+
   public isWrongData = false
 
   public form: FormGroup
 
-  public submitted: boolean = false
+  public submitted = false
 
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router, 
+    private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params['authFailed']) {
+        this.errorMessage = 'Сессия истекла. Авторизуйтесь заново'
+      }
+    })
+
     this.form = new FormGroup({
       email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required)
@@ -38,10 +49,12 @@ export class AuthComponent implements OnInit {
     
     this.auth.login(user).subscribe(() => {
       this.form.reset()
+      this.errorMessage = ''
       this.router.navigate(['/'])      
     }, (err) => {
       console.log('err', err);
       this.isWrongData = true
+      this.errorMessage = 'Неверный логин или пароль'
     })
 
     this.submitted = false

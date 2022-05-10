@@ -10,7 +10,7 @@ import { environment } from "src/environments/environment";
 
 export class AuthService {
 
-  private get token() {
+  public get token() {
     if (!localStorage.getItem('fb-token')) { return null}
     const expDate = new Date(localStorage.getItem('fb-token-exp') as string)
     if (new Date() > expDate) {

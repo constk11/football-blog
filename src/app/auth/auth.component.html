@@ -1,12 +1,12 @@
 <form [formGroup]="form" (submit)="submit()">
-  <div class="wrong-data" *ngIf="isWrongData">
-    <p>Неверный e-mail или пароль</p>
+  <div class="wrong-data danger-text">
+    <p>{{errorMessage}}</p>
   </div>
   <div class="form-control" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
     <label for="email">Email:</label>
     <input id="email" type="email" formControlName="email" autocomplete="off">
     <div class="validation">
-      <small>Введите email</small>
+      <small class="danger-text">Введите email</small>
     </div>
   </div>
 
@@ -14,9 +14,9 @@
     <label for="password">Пароль:</label>
     <input id="password" type="password" formControlName="password" autocomplete="new-password">
     <div class="validation">
-      <small>Введите пароль</small>
+      <small class="danger-text">Введите пароль</small>
     </div>
   </div>
 
-  <button type="submit" class="btn btn-submit" [disabled]="form.invalid || submitted">Войти</button>
+  <button type="submit" class="btn" [disabled]="form.invalid || submitted">Войти</button>
 </form>

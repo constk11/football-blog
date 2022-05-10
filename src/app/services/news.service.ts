@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { News } from '../shared/interfaces';
+import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { FbCreateResponse, News } from '../shared/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -31,11 +34,33 @@ export class NewsService {
     },
   ];
 
-  public getNews(): News[] {
-    return this.news;
+  constructor(private readonly http: HttpClient) {}
+
+  public getNews(): Observable<News[]> {
+    return this.http.get<News[]>(`${environment.fbDbUrl}/news.json`).pipe(
+      map((res: {[key: string]: any}) => {
+        return Object.keys(res).map(key => ({
+          ...res[key],
+          id: key,
+          date: new Date(res[key].date)
+        }))
+      })
+    )
   }
 
   public getNewsById(id: string): News | undefined {
     return this.news.find((news) => news.id == id);
   }
+
+  public create(news: News): Observable<News> {
+    return this.http.post<FbCreateResponse>(`${environment.fbDbUrl}/news.json`, news)
+      .pipe(
+        map((response: FbCreateResponse) => {
+          return {
+            ...news,
+            id: response.name
+          }
+        })
+      );
+  } 
 }

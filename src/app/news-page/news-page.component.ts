@@ -16,10 +16,16 @@ export class NewsPageComponent implements OnInit {
   constructor(private newsService: NewsService, private imageService: ImageService) {}
 
   ngOnInit(): void {
-    this.news = this.newsService.getNews()
+    this.newsService.getNews().subscribe((res) => {
+      console.log('news from db', res);
+      this.news = res
+    })
   }
 
-  public getPictureSrc(pictureId: string): string {
+  public getPictureSrc(pictureId: string | undefined): string {
+    if (!pictureId) {
+      return ''
+    }
     return this.imageService.getImageSrc(pictureId, imagesTypes.newsPicture)
   }
 }

@@ -8,6 +8,7 @@ import { TeamsPageComponent } from './teams-page/teams-page.component';
 import { TeamComponent } from './teams-page/team/team.component';
 import { NewsComponent } from './news-page/news/news.component';
 import { AuthComponent } from './auth/auth.component';
+import { CreateNewsComponent } from './admin/create-news/create-news.component';
 
 const routes: Routes = [
   {
@@ -21,9 +22,11 @@ const routes: Routes = [
       {path: 'news/:id', component: NewsComponent},
       {path: 'matches', component: MatchesPageComponent},
 
-      {path: 'auth', component: AuthComponent}
+      {path: 'auth', component: AuthComponent},
+
+      {path: 'news/admin/create-news', component: CreateNewsComponent}
     ],
-  },
+  }
 ];
 
 @NgModule({

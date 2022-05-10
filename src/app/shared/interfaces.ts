@@ -11,8 +11,8 @@ export interface News {
   date: Date,
   publisher: string,
   text: string,
-  pictureId: string,
-  id: string
+  pictureId?: string,
+  id?: string
 }
 
 export interface TeamBase {
@@ -49,4 +49,8 @@ export interface User {
 export interface FbAuthResponse {
   idToken: string
   expiresIn: string
+}
+
+export interface FbCreateResponse {
+  name: string
 }

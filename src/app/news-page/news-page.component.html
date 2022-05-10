@@ -1,4 +1,7 @@
-<div class="page">
+<div class="page" *ngIf="news?.length; else loadingSpinner">
+  <div class="adding-news-button button" routerLink="admin/create-news">
+    <p>Добавить новость</p>
+  </div>
   <div
     class="news-card card"
     *ngFor="let currNews of news"
@@ -17,3 +20,6 @@
     </div>
   </div>
 </div>
+<ng-template #loadingSpinner>
+  <div class="loading-spinner"></div>
+</ng-template>

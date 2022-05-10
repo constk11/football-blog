@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +18,16 @@ import { GoBackComponent } from './shared/components/go-back/go-back.component';
 import { ExtraInfoComponent } from './teams-page/team/extra-info/extra-info.component';
 import { AuthComponent } from './auth/auth.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminModule } from './admin/admin.module';
+import { QuillModule } from 'ngx-quill'
+import { AuthInterceptor } from './shared/auth.interceptor';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: AuthInterceptor
+}
 
 registerLocaleData(ruLocale, 'ru')
 
@@ -42,9 +51,14 @@ registerLocaleData(ruLocale, 'ru')
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminModule,
+    QuillModule.forRoot()
   ],
-  providers: [],
+  exports: [
+    QuillModule
+  ],
+  providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
