@@ -1,0 +1,38 @@
+.grid {
+  width: 850px;
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  gap: 50px;
+  justify-items: center;
+  margin: 0 auto;
+}
+
+.team-card {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--team-card-bg);
+
+  &:hover {
+    background-color: var(--team-card-hover-bg);
+  }
+
+  .team-logo {    
+    width: 100px;
+    height: 100px;
+
+    &.real-madrid {
+      width: 75px;
+      height: 100px;
+    }
+  }
+
+  p {
+    text-align: center;
+    margin-top: 10px;
+  }
+}

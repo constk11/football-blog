@@ -1,0 +1,14 @@
+<nav>
+  <div class="logo">
+    <img routerLink="/" src="../../assets/logo.png" alt="" />
+  </div>
+  <menu>
+    <a routerLinkActive="active" routerLink="/teams">Команды</a>
+    <a routerLinkActive="active" routerLink="/news">Новости</a>
+    <a routerLinkActive="active" routerLink="/matches">Матчи</a>
+    <a routerLinkActive="active" routerLink="/auth" *ngIf="!isAuthenticated() else logoutLink" >Войти</a>
+    <ng-template #logoutLink>
+      <a routerLink="/" (click)="logout()">Выйти</a>
+    </ng-template>
+  </menu>
+</nav>

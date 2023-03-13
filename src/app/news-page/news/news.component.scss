@@ -1,0 +1,35 @@
+.news-wrap {
+  position: relative;  
+  padding: 35px 0;
+  color: var(--dark-text-color);
+  
+  .news {
+    background-color: var(--news-bg);    
+    border-radius: 5px;
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding: 20px 60px;
+
+    .news-source {
+      display: flex;
+      justify-content: space-between;
+
+      .news-date, .news-publisher {
+        color: var(--news-minor-text-color);
+      }
+    }
+
+    .news-title {
+      margin-top: 10px;
+    }
+
+    .news-picture {
+      margin: 30px auto;
+    }
+
+    .news-text {
+      line-height: 24px;
+      white-space: pre-line;
+    }
+  }
+}

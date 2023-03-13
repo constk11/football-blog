@@ -1,0 +1,14 @@
+<div class="teams-wrap" *ngIf="team">
+  <div class="squad">
+    <h2 class="team-name active" (click)="showExtra($event, team)">{{team.name}}</h2>
+    <ul class="players">
+      <li class="player" *ngFor="let player of team.players" (click)="showExtra($event, player)">
+        <p class="player-number">{{player.number}}</p>
+        <p class="player-name">{{player.firstName[0] + '. ' + player.lastName}}</p>
+        <p class="player-position">{{player.position}}</p>
+      </li>
+    </ul>
+  </div>
+
+  <app-extra-info [subject]="subject"></app-extra-info>
+</div>

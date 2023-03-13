@@ -1,0 +1,29 @@
+<form [formGroup]="form">
+  <h2>Добавление новости</h2>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('title')?.touched && form.get('title')?.invalid}">
+    <label for="title">Заголовок:</label>
+    <input id="title" formControlName="title" autocomplete="off">
+    <div class="validation">
+      <small class="danger-text">Введите заголовок</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('text')?.touched && form.get('text')?.invalid}">
+    <label for="text">Текст:</label>
+    <quill-editor id="text" formControlName="text"></quill-editor>
+    <div class="validation">
+      <small class="danger-text">Введите текст</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('publisher')?.touched && form.get('publisher')?.invalid}">
+    <label for="publisher">Автор:</label>
+    <input id="publisher" formControlName="publisher" autocomplete="off">
+    <div class="validation">
+      <small class="danger-text">Введите автора</small>
+    </div>
+  </div>
+
+  <button class="btn" (click)="createNews()">Создать</button>
+</form>
